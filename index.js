@@ -1,12 +1,13 @@
-const http = require('http');
-const PORT = 3000;
+const { log } = require('console')
+const http = require('http')
+require('dotenv').config()
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!');
-});
+const PORT = 3000 || process.env.PORT
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
+const server = http.createServer((req,res)=>{
+    res.end('Hello world!')
+})
+
+server.listen(PORT ,()=>{
+    log('server started listening ...')
+})
